@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Permaculture & Palestine - A global network of permaculturists standing in solidarity with Palestine. Earth Care, People Care, Fair Share.">
+    <title>Permaculture & Palestine (PePa) | Growing Solidarity, Rooting Justice</title>
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Palestinian Flag Colors */
+            --flag-green: #007A3D;
+            --flag-red: #EE2A35;
+            --flag-black: #000000;
+            --flag-white: #FFFFFF;
+            
+            /* Earthy Permaculture Tones */
+            --earth-brown: #6B4423;
+            --olive-green: #6B8E23;
+            --warm-sand: #F5E6D3;
+            --deep-soil: #3E2723;
+            
+            /* Functional Colors */
+            --bg-light: #FAF9F6;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+            --accent: var(--flag-green);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--flag-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--flag-green);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--flag-green);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            color: var(--flag-white);
+            padding: 6rem 0 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--flag-green);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000"><rect width="1500" height="333.31" fill="%23000"/><rect y="333.31" width="1500" height="333.31" fill="%23fff"/><rect y="666.61" width="1500" height="333.31" fill="%23007a3d"/><path d="M0,0,500,500,0,999.92Z" fill="%23ce1126"/></svg>');
+            background-size: contain;
+            background-position: center;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,122,61,0.85) 0%, rgba(107,142,35,0.85) 100%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: inherit;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--flag-white);
+            color: var(--flag-green);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--flag-white);
+            border-color: var(--flag-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--flag-white);
+            color: var(--flag-green);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--flag-white);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: var(--flag-green);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--deep-soil);
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--flag-green);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: var(--text-dark);
+        }
+
+        /* About Section */
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about .highlight {
+            background: var(--warm-sand);
+            padding: 1.5rem;
+            border-left: 4px solid var(--flag-green);
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        /* Statement Section */
+        .statement {
+            background: linear-gradient(to right, var(--warm-sand) 0%, var(--bg-light) 100%);
+        }
+
+        .statement blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--deep-soil);
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--flag-white);
+            border-left: 5px solid var(--flag-red);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .statement ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .statement li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .statement li::before {
+            content: '🌱';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Events Section */
+        .events {
+            background: var(--flag-white);
+        }
+
+        .event-card {
+            background: var(--warm-sand);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .event-date {
+            color: var(--flag-red);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Working Groups */
+        .working-groups {
+            background: linear-gradient(135deg, rgba(0,122,61,0.05) 0%, rgba(107,142,35,0.05) 100%);
+        }
+
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .group-card {
+            background: var(--flag-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--flag-green);
+        }
+
+        .group-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .group-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* How to Help Section */
+        .help-list {
+            margin: 2rem 0;
+        }
+
+        .help-item {
+            background: var(--flag-white);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--flag-green);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .help-item h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--flag-green);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Partners Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .partner-card {
+            background: var(--warm-sand);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--deep-soil);
+            color: var(--flag-white);
+        }
+
+        .contact h2 {
+            color: var(--flag-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item a {
+            color: var(--flag-white);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .languages {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--flag-black);
+            color: var(--flag-white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        footer blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin: 0 auto 2rem;
+            max-width: 800px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        footer cite {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            color: var(--flag-green);
+        }
+
+        .footer-message {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .groups-grid,
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+
+        /* Accessibility */
+        .btn:focus,
+        a:focus {
+            outline: 3px solid var(--flag-green);
+            outline-offset: 2px;
+        }
+
+        /* Decorative Elements */
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--flag-green);
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        /* Smooth Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .group-card,
+            .partner-card,
+            .help-item,
+            .event-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">🌱 PePa</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#statement">Statement</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#working-groups">Working Groups</a></li>
+                <li><a href="#help">Get Involved</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Permaculture & Palestine:<br>Growing Solidarity, Rooting Justice</h1>
+            <p class="tagline">Earth Care, People Care, Fair Share — Standing with Palestine</p>
+            <div class="cta-buttons">
+                <a href="https://chng.it/mM5wR94Cq6" class="btn btn-primary" target="_blank" rel="noopener">Sign Our Statement</a>
+                <a href="https://t.me/+3ejhkzOd4l03NjM0" class="btn btn-secondary" target="_blank" rel="noopener">Join Our Telegram Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>Permaculture & Palestine (PePa) is a global network of permaculturists, activists, farmers, educators and community organizers united in solidarity with the Palestinian people and their land.</p>
+            
+            <p>Initiated in July 2025, we are currently <strong>220+ members</strong> (13/10/2025) from across the world who believe that the ethics of permaculture — Earth Care, People Care and Fair Share — compel us to stand against genocide, apartheid, ecocide and the ongoing colonization of Palestine.</p>
+            
+            <div class="highlight">
+                <p><strong>Our work is rooted in solidarity, not charity.</strong> We believe in horizontal relationships that respect Palestinian knowledge, agency and resilience. We recognize the interconnections between ecological and social justice in the context of settler colonialism.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statement Section -->
+    <section id="statement" class="statement">
+        <div class="container">
+            <h2>Our Statement</h2>
+            <h3>A Call from the Permaculture Movement</h3>
+            
+            <p>We have created a collective statement calling on the international permaculture community to:</p>
+            
+            <ul>
+                <li><strong>Speak clearly</strong> against genocide, apartheid, settler colonialism and ecocide in Palestine</li>
+                <li><strong>Amplify Palestinian voices</strong> in permaculture courses, gatherings and projects</li>
+                <li><strong>Take action</strong> through working groups focused on long-term solidarity and support</li>
+                <li><strong>Acknowledge</strong> the colonial and patriarchal histories within the permaculture movement itself</li>
+            </ul>
+
+            <blockquote>
+                "Permaculture is care for the Earth, care for people and care for the future. Let's live up to those ethics."
+            </blockquote>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://chng.it/mM5wR94Cq6" class="btn btn-primary" target="_blank" rel="noopener">Sign & Share the Statement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2>Recent Events</h2>
+            
+            <div class="event-card">
+                <h3>Genocide and Ecocide: A Conversation with Prof. Mazin Qumsiyeh</h3>
+                <p class="event-date">October 16, 2025</p>
+                
+                <p>We hosted Professor Mazin Qumsiyeh, founder and director of the Palestine Institute for Biodiversity and Sustainability at Bethlehem University. This two-hour session explored the interconnections between ecological and social justice in the context of Palestine and settler colonialism.</p>
+                
+                <p>Professor Qumsiyeh is a renowned scientist, author, and peace activist who has published over 250 scientific papers and several books including "Sharing the Land of Canaan" and "Popular Resistance in Palestine." He was nominated for the Nobel Peace Prize in 2025.</p>
+                
+                <p><a href="#" class="btn btn-primary" style="margin-top: 1rem;">Watch the Recording →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Groups Section -->
+    <section id="working-groups" class="working-groups">
+        <div class="container">
+            <h2>Our Working Groups</h2>
+            <p>PePa organizes into working groups through Telegram to take concrete action:</p>
+            
+            <div class="groups-grid">
+                <div class="group-card">
+                    <div class="group-icon">🌱</div>
+                    <h4>Seeds & Food Sovereignty</h4>
+                    <p>Supporting Palestinian farmers with seed preservation, distribution and agricultural knowledge exchange. Recently fundraising for seed bank restoration after Israeli destruction of facilities.</p>
+                </div>
+
+                <div class="group-card">
+                    <div class="group-icon">📢</div>
+                    <h4>Social Media & Communications</h4>
+                    <p>Managing PePa's Instagram, Facebook and multilingual outreach in English, Spanish, French, Italian and Arabic.</p>
+                </div>
+
+                <div class="group-card">
+                    <div class="group-icon">💚</div>
+                    <h4>Direct Support & Fundraising</h4>
+                    <p>Promoting Palestinian-led projects who need funding and volunteers to continue their vital work.</p>
+                </div>
+
+                <div class="group-card">
+                    <div class="group-icon">🏠</div>
+                    <h4>Shelter & Building</h4>
+                    <p>Designing and sharing plans for easily-constructed emergency shelters using locally available materials in Gaza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How You Can Help Section -->
+    <section id="help" class="how-to-help">
+        <div class="container">
+            <h2>How You Can Help</h2>
+            
+            <div class="help-list">
+                <div class="help-item">
+                    <h4>1️⃣ Sign & Share Our Statement</h4>
+                    <p>Add your voice to the growing chorus of permaculturists standing in solidarity.</p>
+                    <a href="https://chng.it/mM5wR94Cq6" target="_blank" rel="noopener">change.org/permaculturepalestine</a>
+                </div>
+
+                <div class="help-item">
+                    <h4>2️⃣ Join Our Telegram Community</h4>
+                    <p>Connect with 220+ permaculturists from around the world taking action.</p>
+                    <a href="https://t.me/+3ejhkzOd4l03NjM0" target="_blank" rel="noopener">t.me/+3ejhkzOd4l03NjM0</a>
+                </div>
+
+                <div class="help-item">
+                    <h4>3️⃣ Follow Us on Social Media</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/permaculturepalestine" target="_blank" rel="noopener">📷 Instagram: @permaculturepalestine</a>
+                        <a href="https://facebook.com/permaculturepalestine" target="_blank" rel="noopener">📘 Facebook: Permaculture & Palestine</a>
+                    </div>
+                </div>
+
+                <div class="help-item">
+                    <h4>4️⃣ Amplify Palestinian Voices</h4>
+                    <p>In your permaculture courses, gatherings, workshops and projects — center Palestinian knowledge, experience and leadership.</p>
+                </div>
+
+                <div class="help-item">
+                    <h4>5️⃣ Support Palestinian Projects</h4>
+                    <p>We share opportunities to directly support permaculture work in Palestine and with displaced Palestinian communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Partners Section -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <h2>Featured Partners & Projects</h2>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h4>Sama Gaza</h4>
+                    <p>Working with stateless communities in Jerash Refugee Camp (Gaza Camp) in Jordan on permaculture and sustainable practices.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h4>Palestine Institute for Biodiversity and Sustainability</h4>
+                    <p>Based at Bethlehem University, conducting vital research and education on biodiversity conservation and environmental justice.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h4>Permaculture For Refugees (P4R)</h4>
+                    <p>International network offering permaculture training and support for Palestinians in the diaspora and those in Gaza and the West Bank.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact & Join</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>📱 Telegram Group</h4>
+                    <a href="https://t.me/+3ejhkzOd4l03NjM0" target="_blank" rel="noopener">t.me/+3ejhkzOd4l03NjM0</a>
+                </div>
+
+                <div class="contact-item">
+                    <h4>✉️ Email List</h4>
+                    <p>Subscribe by sending an email to:</p>
+                    <a href="mailto:permaculture-palestine-subscribe@lists.riseup.net">permaculture-palestine-subscribe@lists.riseup.net</a>
+                </div>
+
+                <div class="contact-item">
+                    <h4>🌐 Domain</h4>
+                    <p>permaculturepalestine.org</p>
+                </div>
+            </div>
+
+            <div class="languages">
+                <h4>Languages We Speak</h4>
+                <p>English • العربية • Español • Français • Italiano • Ελληνικά</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <blockquote>
+                "I don't believe in charity. I believe in solidarity. Charity is so vertical. It goes from the top to the bottom. Solidarity is horizontal. It respects the other person. I have a lot to learn from other people."
+                <cite>— Eduardo Galeano</cite>
+            </blockquote>
+            
+            <div class="footer-message">
+                Free Palestine 🇵🇸 🌱
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">
+                Last updated: October 2025
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
