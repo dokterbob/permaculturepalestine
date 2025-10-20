@@ -115,7 +115,7 @@ nav a:hover {
     background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000"><rect width="1500" height="333.31" fill="%23000"/><rect y="333.31" width="1500" height="333.31" fill="%23fff"/><rect y="666.61" width="1500" height="333.31" fill="%23007a3d"/><path d="M0,0,500,500,0,999.92Z" fill="%23ce1126"/></svg>');
     background-size: contain;
     background-position: center;
-    opacity: 0.3;
+    opacity: 0.6;
     pointer-events: none;
 }
 
